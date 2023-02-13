@@ -47,8 +47,7 @@ Use the copy function below to do the following:
 
 
 function copy(copy){
-  copy = [...originalFlavors]
-  return copy;
+  return [...copy];
   }
 console.log("Task 1", copy(originalFlavors));
 
@@ -82,11 +81,12 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(/*your code here*/){
-  /*your code here*/
+function addFlavor(copy, newFlavors){
+  copy.unshift(newFlavors);
+  return copy;
  }
 
-
+console.log("Task 3", addFlavor(originalFlavors, "Rainbow Sherbert"))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Houston, we have a problem! There are now 32 flavors in the originalFlavors array! Your task is to remove an item from the end of the array. 
@@ -100,11 +100,12 @@ Use the removeLastFlavor function below to do the following:
 */
 
 
-function removeLastFlavor(/*your code here*/){
- /*your code here*/
+function removeLastFlavor(newFlavors){
+ newFlavors.pop();
+ return [...newFlavors]
 }
 
-
+console.log("Task 4", removeLastFlavor(originalFlavors))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function that returns a flavor at a given index in the array.
@@ -118,11 +119,11 @@ Use the getFlavorByIndex function below to do the following:
 */
 
 
-function getFlavorByIndex(/*your code here*/){
-  /*your code here*/
+function getFlavorByIndex(newFlavors, numberIndex){
+  return newFlavors[numberIndex];
 }
 
-
+console.log("Task 5", getFlavorByIndex(originalFlavors, 2))
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, as opposed to just arbitrarily removing the first or last flavor. Your task is to get an index by flavor name, and remove that single flavor from the array.  
@@ -138,11 +139,16 @@ Use the removeFlavorByName function below to do the following:
   HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-  /*your code here*/
+function removeFlavorByName(newFlavors, flavorName) {
+  for(let i = 0; i < newFlavors.length; i++) {
+    if (newFlavors[i] === flavorName) {
+    newFlavors.splice(i, 1);
+  }
+}
+  return newFlavors;
 }
 
-
+console.log("Task 6", removeFlavorByName(originalFlavors, "Rocky Road"))
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. 
@@ -163,11 +169,17 @@ Use the filterByWord function below to do the following:
 */
 
 
-function filterByWord(/*your code here*/){
-  /*your code here*/
-}
+function filterByWord(newFlavors, flavorName){
+  let filteredFlavor = [];
+  for(let i = 0; i < newFlavors.length; i++) {
+    if(newFlavors[i].includes(flavorName)) {
+      filteredFlavor.push(newFlavors[i]);
+    }
+  }
+  return filteredFlavor;
+  }
 
-
+console.log("Task 7", filterByWord(originalFlavors, "Chocolate"))
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
 
